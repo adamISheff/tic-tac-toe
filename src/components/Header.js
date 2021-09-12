@@ -5,7 +5,7 @@ import '../styles/Header.css';
 function Header(props) {
   let message = `${(props.playerTurn === 0) ? props.player1.name : props.player2.name}'s Turn`;
   if (props.gameStatus === player1Won) message = `${props.player1.name} won!`;
-  if (props.gameStatus === player2Won) message = `${props.player1.name} won!`;
+  if (props.gameStatus === player2Won) message = `${props.player2.name} won!`;
   if (props.gameStatus === draw) message = `Draw!`;
 
   return (

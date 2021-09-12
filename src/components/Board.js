@@ -6,21 +6,21 @@ function Board(props) {
   return (
     <div id='board'>
       <div className='row'>
-        <Tile tileNum='0' tileClick={props.tileClick} />
-        <Tile tileNum='1' tileClick={props.tileClick} />
-        <Tile tileNum='2' tileClick={props.tileClick} />
+        <Tile id='0' tileClick={props.tileClick} />
+        <Tile id='1' tileClick={props.tileClick} />
+        <Tile id='2' tileClick={props.tileClick} />
       </div>
 
       <div className='row'>
-        <Tile tileNum='3' tileClick={props.tileClick} />
-        <Tile tileNum='4' tileClick={props.tileClick} />
-        <Tile tileNum='5' tileClick={props.tileClick} />
+        <Tile id='3' tileClick={props.tileClick} />
+        <Tile id='4' tileClick={props.tileClick} />
+        <Tile id='5' tileClick={props.tileClick} />
       </div>
 
       <div className='row'>
-        <Tile tileNum='6' tileClick={props.tileClick} />
-        <Tile tileNum='7' tileClick={props.tileClick} />
-        <Tile tileNum='8' tileClick={props.tileClick} />
+        <Tile id='6' tileClick={props.tileClick} />
+        <Tile id='7' tileClick={props.tileClick} />
+        <Tile id='8' tileClick={props.tileClick} />
       </div>
     </div>
   );

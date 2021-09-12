@@ -4,7 +4,7 @@ import Board from './Board.js';
 import EndGame from './EndGame.js';
 import ResetButton from './ResetButton.js';
 import Footer from './Footer.js';
-import { playing } from '../State.js';
+import { playing, player1Won, player2Won, draw } from '../State.js';
 import '../styles/Game.css';
 
 const DEFAULT_BOARD = [null, null, null, null, null, null, null, null, null];
@@ -34,13 +34,25 @@ function Game(props) {
 
   function tileClick(event) {
     // determine tile index
-    const index = event.target;
-    // if tile has already been clicked, exit
-    // Update board
-    // Update playerTurn
-    // Check gameStatus
 
-    console.log({index});
+    /* 
+      event.target is of type HTMLElement, not ReactElement, so it is a DOM element
+      and does not have access to the ReactElement properties. We are forced to
+      pollute the global id namespace and force engine to run additional code if
+      we want to use event.target.id and events instead of partially invoked functions.
+    */
+    const index = parseInt(event.target.id);
+
+    // if tile has already been clicked, exit
+    if (board[index] !== null) return;
+    // Update board
+    const newBoard = board.slice();
+    newBoard[index] = playerTurn;
+    setBoard(newBoard);
+    // Check gameStatus
+    setGameStatus(checkGameStatus(newBoard, playerTurn));
+    // Update playerTurn
+    setPlayerTurn(playerTurn === 0 ? 1 : 0);
   }
 
   return (
@@ -59,6 +71,24 @@ function Game(props) {
       <Footer />
     </div>
   );
+}
+
+function checkGameStatus(board, playerTurn) {
+  // check if a player has won
+  for (let i = 0; i < 3; i++) {
+    if ((board[3 * i] !== null && board[3 * i] === board[3 * i + 1] && board[3 * i + 1] === board[3 * i + 2])
+      || (board[0 + i] !== null && board[0 + i] === board[3 + i] && board[3 + i] === board[6 + i])) {
+      console.log(i);
+      return playerTurn === 0 ? player1Won : player2Won;
+    }
+  }
+  if ((board[0] !== null && board[0] === board[4] && board[4] === board[8])
+    || (board[2] !== null && board[2] === board[4] && board[4] === board[6])) {
+    return playerTurn === 0 ? player1Won : player2Won;
+  }
+  // check if game is a draw
+  if (!board.some(element => element === null)) return draw;
+  return playing;
 }
 
 export default Game;

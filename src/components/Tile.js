@@ -3,7 +3,7 @@ import './../styles/Tile.css';
 
 function Tile(props) {
   return (
-    <button className='tile' onClick={props.tileClick} />
+    <button id={props.id} className='tile' onClick={props.tileClick} />
   );
 }
 
