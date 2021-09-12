@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import './styles/Header.js';
-
+import React from 'react';
+import {player1Won, player2Won, draw} from './State.js';
+import './styles/Header.css';
 
 function Header(props) {
-
-
-
+  let message = `${(props.playerTurn === 0) ? props.player1.name : props.player2.name}'s Turn`;
+  if (props.gameStatus === player1Won) message = `${props.player1.name} won!`;
+  if (props.gameStatus === player2Won) message = `${props.player1.name} won!`;
+  if (props.gameStatus === draw) message = `Draw!`;
+  
   return (
     <div>
       <header>
@@ -17,12 +18,11 @@ function Header(props) {
       
       <div id='scoreboard'>
         <div><p>{props.player1NumWin}</p></div>
-        <p>{(props.playerTurn === 0) ? props.player1 : props.player2}'s Turn</p>
+        <p>{message}</p>
         <div><p>{props.player2NumWin}</p></div>
       </div>
     </div>
   );
-
 }
 
 export default Header;

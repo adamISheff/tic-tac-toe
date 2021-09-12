@@ -4,8 +4,8 @@ import './styles/App.css';
 
 
 function App(props) {
-  const [player1, setPlayer1] = useState('Adam');
-  const [player2, setPlayer2] = useState('Miguel');
+  const [player1, setPlayer1] = useState({name: 'Adam', logo: './assets/draw1.gif'});
+  const [player2, setPlayer2] = useState({name: 'Miguel', logo: './assets/draw1.gif'});
   
   return (
     <Game player1={player1} player2={player2} />

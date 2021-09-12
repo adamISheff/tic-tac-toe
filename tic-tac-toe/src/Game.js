@@ -33,19 +33,14 @@ function Game(props) {
         player1NumWin={player1NumWin}
         player2NumWin={player2NumWin}
         playerTurn={playerTurn}
+        gameStatus={gameStatus}
       />
       {gameStatus === Game.playing && <Board board={board} tileClick={tileClick} />}
-      {gameStatus !== Game.playing && <EndGame gameStatus={gameStatus} />}
+      {gameStatus !== Game.playing && <EndGame gameStatus={gameStatus} player1={props.player1} player2={props.player2} />}
       <ResetButton reset={reset} />
       <Footer />
     </div>
   );
 }
-
-/* Game Status */
-Game.playing = Symbol('playing');
-Game.player1Won = Symbol('player1Won');
-Game.player2Won = Symbol('player2Won');
-Game.draw = Symbol('draw');
 
 export default Game;
