@@ -11,9 +11,9 @@ function Header(props) {
   return (
     <div>
       <header>
-        <p className={'player' + ((props.playerTurn) ? ' current' : '')}>{props.player1}</p>
+        <p className={'player' + ((props.playerTurn) ? ' current' : '')}>{props.player1.name}</p>
         <h1 className='logo'>Tic Tac Toe</h1>
-        <p className={'player' + (!props.playerTurn) ? ' current' : ''}>{props.player2}</p>
+        <p className={'player' + (!props.playerTurn) ? ' current' : ''}>{props.player2.name}</p>
       </header>
 
       <div id='scoreboard'>
