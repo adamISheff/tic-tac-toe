@@ -4,7 +4,7 @@ import Board from './Board.js';
 import EndGame from './EndGame.js';
 import ResetButton from './ResetButton.js';
 import Footer from './Footer.js';
-import './styles/Game.css';
+import '../styles/Game.css';
 
 const DEFAULT_BOARD = ['', '', '', '', '', '', '', '', ''];
 
@@ -14,7 +14,7 @@ function Game(props) {
   const [board, setBoard] = useState(DEFAULT_BOARD);
   const [playerTurn, setPlayerTurn] = useState(0);
   const [gameStatus, setGameStatus] = useState(Game.playing);
-  
+
   function reset() {
     // TODO
     console.log('reset');
@@ -27,8 +27,8 @@ function Game(props) {
 
   return (
     <div>
-      <Header 
-        player1={props.player1} 
+      <Header
+        player1={props.player1}
         player2={props.player2}
         player1NumWin={player1NumWin}
         player2NumWin={player2NumWin}

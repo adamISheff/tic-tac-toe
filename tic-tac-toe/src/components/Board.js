@@ -1,6 +1,6 @@
 import React from 'react';
 import Tile from './Tile.js';
-import './styles/Board.css';
+import '../styles/Board.css';
 
 function Board(props) {
   return (
@@ -23,7 +23,7 @@ function Board(props) {
         <Tile tileClick={props.tileClick} />
       </div>
     </div>
-  );  
+  );
 }
 
 export default Board;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {player1Won, player2Won} from './State.js';
+import { player1Won, player2Won } from '../State.js';
 import './EndGame.js';
 
 function EndGame(props) {
